@@ -3,7 +3,7 @@
 	<!-- <xsl:output method="text" encoding="iso-8859-1" indent="yes"/> -->
 	<xsl:output method="text" encoding="UTF-8" indent="yes"/>
 
-<xsl:template match="Project/Models/Package/ModelChildren/Class[not (.//AssociationClass) and .//Stereotype[@Name ='Entity']]">
+<xsl:template match="Project/Models/Package/ModelChildren/Class[not (.//AssociationClass) and (.//Stereotype[@Name !='enumeration'] or not(.//Stereotypes))]">
        <xsl:variable name="contextName" select="@Name"/>
 	   <xsl:variable name="iDClass" select="@Id"/>
 	   <xsl:result-document href="{$projectName}/{$projectName}.Core/Entities//{$contextName}.cs">

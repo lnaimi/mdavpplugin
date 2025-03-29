@@ -2,7 +2,7 @@
   <xsl:import href="utilFunctions.xsl"/>
 	<xsl:output method="text" encoding="iso-8859-1" indent="yes"/>
 
-<xsl:template match="Project/Models/Package/ModelChildren/Class[not (.//AssociationClass) and .//Stereotype[@Name ='Service']]">
+<xsl:template match="Project/Models/Package/ModelChildren/Class[not (.//AssociationClass) and .//Stereotype[@Name ='Entity']]">
        <xsl:variable name="contextName" select="@Name"/>
 	   <xsl:variable name="iDClass" select="@Id"/>
 	   <xsl:result-document href="{$projectName}/{$projectName}.Core/Services//{$contextName}Service.cs">
